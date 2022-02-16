@@ -6,7 +6,7 @@ use crate::error;
 type Token = String;
 
 #[derive(serde_derive::Deserialize, Debug)]
-struct RegisterResponse {
+struct Response {
     code: i32,
     data: String,
     #[serde(default, rename = "name")]
@@ -66,7 +66,7 @@ impl Service {
     /// ```
     pub fn register(&mut self, subdomain: &str, target: Ipv4Addr) -> Result<Token, error::DnsApiError> {
         let url = format!("https://anondns.net/api/register/{}.anondns.net/a/{}", subdomain, target.to_string());
-        let json: RegisterResponse = self.client.get(url)
+        let json: Response = self.client.get(url)
             .send()?
             .json()?;
 
@@ -101,7 +101,7 @@ impl Service {
     /// ```
     pub fn update(&mut self, subdomain: &str, target: Ipv4Addr, token: Token) -> Result<Ipv4Addr, error::DnsApiError> {
         let url = format!("https://anondns.net/api/set/{}.anondns.net/{}/a/{}", subdomain, token, target.to_string());
-        let json: RegisterResponse = self.client.get(url)
+        let json: Response = self.client.get(url)
             .send()?
             .json()?;
 
