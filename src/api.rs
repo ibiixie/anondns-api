@@ -45,7 +45,7 @@ impl Service {
     /// This function may return one of the following error variants:
     /// - `DnsApiError::BadRequest((i32, String))`
     /// - `DnsApiError::UnknownErrorCode((i32, String))`
-    /// - `DnsApiError::Reqwest(reqwest::Error)
+    /// - `DnsApiError::Reqwest(reqwest::Error)`
     /// 
     /// # Examples
     ///
@@ -78,7 +78,7 @@ impl Service {
     /// This function may return one of the following error variants:
     /// - `DnsApiError::BadRequest((i32, String))`
     /// - `DnsApiError::UnknownErrorCode((i32, String))`
-    /// - `DnsApiError::Reqwest(reqwest::Error)
+    /// - `DnsApiError::Reqwest(reqwest::Error)`
     /// - `DnsApiError::AddressParse(std::net::AddrParseError)`
     /// 
     /// # Examples
