@@ -7,7 +7,7 @@ pub type Error = DnsApiError;
 #[derive(Debug)]
 pub enum DnsApiError {
     BadRequest((i32, String)),
-    UnknownErrorCode((i32, String)), // On the off-chance that anondns actually does use error codes other than 0 and 1...
+    UnknownErrorCode((i32, String)), // On the off-chance that AnonDNS actually does return error codes other than 0 and 1...
     Reqwest(reqwest::Error),
     AddressParse(std::net::AddrParseError)
 }
